@@ -16,6 +16,7 @@
 
     <modules>
         <module>observer</module>
+        <module>command</module>
     </modules>
 
     <build>
