@@ -9,7 +9,7 @@ public class Application {
         snake.attach(new MouseSnakeObserver());
 
         snake.setAgression(Aggression.LOW);
-        snake.setWeight(20);
-        snake.setSpeed(100);
+        snake.setWeight(100);
+        snake.setSpeed(200);
     }
 }
