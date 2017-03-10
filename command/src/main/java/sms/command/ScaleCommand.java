@@ -1,22 +1,39 @@
 package sms.command;
 
-import sms.Board;
 import sms.Square;
+import sms.SquareRepository;
 
-import java.util.Map;
+import java.util.Optional;
 
 /**
- * Created by jszybisty on 2/24/2017.
+ * Created by jakub on 10.03.2017.
  */
-public class ScaleCommand implements UndoableCommand {
+public class ScaleCommand extends Command {
 
     @Override
-    public void execute(Board board) {
-
+    public void execute(final SquareRepository squareRepository, final CommandMetadata commandMetadata) {
+        final Optional<Square> square = squareRepository.findOneById(commandMetadata.getIFactor());
+        square.ifPresent(s -> {
+            scaleSquare(s, commandMetadata);
+            saveUndoableData(s, commandMetadata, null);
+        });
     }
 
     @Override
-    public CommandMetadata extractCommandInformation(String input) {
-        return null;
+    public void undo() {
+        reduceSquare(undoableDataWrapper.getSquare(), undoableDataWrapper.getCommandMetadata());
+    }
+
+    @Override
+    public void redo() {
+        scaleSquare(undoableDataWrapper.getSquare(), undoableDataWrapper.getCommandMetadata());
+    }
+
+    private static void scaleSquare(final Square square, final CommandMetadata commandMetadata) {
+        square.setSideLength(square.getSideLength() * commandMetadata.getJFactor());
+    }
+
+    private static void reduceSquare(final Square square, final CommandMetadata commandMetadata) {
+        square.setSideLength(square.getSideLength() / commandMetadata.getJFactor());
     }
 }

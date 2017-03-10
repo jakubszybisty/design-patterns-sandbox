@@ -1,11 +1,11 @@
 package sms.command;
 
 /**
- * Created by jszybisty on 2/24/2017.
+ * Created by jakub on 27.02.2017.
  */
 public class CommandMetadata {
     private CommandShortcut commandShortcut;
-    private int squareNumber;
+    private int iFactor;
     private int jFactor;
     private int kFactor;
 
@@ -17,37 +17,27 @@ public class CommandMetadata {
         this.commandShortcut = commandShortcut;
     }
 
-    public int getSquareNumber() {
-        return squareNumber;
+    public int getIFactor() {
+        return iFactor;
     }
 
-    public void setSquareNumber(int squareNumber) {
-        this.squareNumber = squareNumber;
+    public void setIFactor(int iFactor) {
+        this.iFactor = iFactor;
     }
 
-    public int getjFactor() {
+    public int getJFactor() {
         return jFactor;
     }
 
-    public void setjFactor(int jFactor) {
+    public void setJFactor(int jFactor) {
         this.jFactor = jFactor;
     }
 
-    public int getkFactor() {
+    public int getKFactor() {
         return kFactor;
     }
 
-    public void setkFactor(int kFactor) {
+    public void setKFactor(int kFactor) {
         this.kFactor = kFactor;
-    }
-
-    @Override
-    public String toString() {
-        return "sms.command.CommandMetadata{" +
-                "commandShortcut=" + commandShortcut +
-                ", squareNumber=" + squareNumber +
-                ", jFactor=" + jFactor +
-                ", kFactor=" + kFactor +
-                '}';
     }
 }

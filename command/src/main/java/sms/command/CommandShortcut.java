@@ -1,7 +1,7 @@
 package sms.command;
 
 /**
- * Created by jszybisty on 2/24/2017.
+ * Created by jakub on 07.03.2017.
  */
 public enum CommandShortcut {
     C("create"),
@@ -11,16 +11,9 @@ public enum CommandShortcut {
     R("redo"),
     P("print");
 
-    private String command;
+    private String name;
 
-    CommandShortcut(String command) {
-        this.command = command;
-    }
-
-    @Override
-    public String toString() {
-        return "sms.command.CommandShortcut{" +
-                "command='" + command + '\'' +
-                '}';
+    CommandShortcut(String name) {
+        this.name = name;
     }
 }

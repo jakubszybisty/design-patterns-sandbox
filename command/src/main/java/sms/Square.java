@@ -3,11 +3,16 @@ package sms;
 /**
  * Created by jszybisty on 2/24/2017.
  */
-public class Square extends Target {
+public class Square {
     private int number;
-    private int xCord;
-    private int yCord;
+    private int xCoordinate;
+    private int yCoordinate;
     private int sideLength;
+
+    @Override
+    public String toString() {
+        return String.format("%d %d %d %d", number, xCoordinate, yCoordinate, sideLength);
+    }
 
     public int getNumber() {
         return number;
@@ -17,20 +22,20 @@ public class Square extends Target {
         this.number = number;
     }
 
-    public int getxCord() {
-        return xCord;
+    public int getXCoordinate() {
+        return xCoordinate;
     }
 
-    public void setxCord(int xCord) {
-        this.xCord = xCord;
+    public void setXCoordinate(int xCoordinate) {
+        this.xCoordinate = xCoordinate;
     }
 
-    public int getyCord() {
-        return yCord;
+    public int getYCoordinate() {
+        return yCoordinate;
     }
 
-    public void setyCord(int yCord) {
-        this.yCord = yCord;
+    public void setYCoordinate(int yCoordinate) {
+        this.yCoordinate = yCoordinate;
     }
 
     public int getSideLength() {
