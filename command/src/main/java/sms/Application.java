@@ -16,7 +16,7 @@ public class Application {
         final Executer executer = new Executer();
         final CommandMetadataResolver commandMetadataResolver = new CommandMetadataResolver();
 
-        Scanner scanner = new Scanner(System.in);
+        final Scanner scanner = new Scanner(System.in);
         while(true) {
             String commandMetadata = scanner.nextLine();
             executer.executeCommand(commandMetadataResolver.resolve(commandMetadata), squareRepository);

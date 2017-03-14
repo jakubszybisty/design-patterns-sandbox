@@ -9,18 +9,8 @@ public class SquareRepository {
 
     private Set<Square> squares = new HashSet<>();
 
-
-    public Optional<Square> findOne(Square square) {
-        return squares.stream().filter(s -> s.getNumber() == square.getNumber()).findFirst();
-    }
-
     public Optional<Square> findOneById(Integer id) {
         return squares.stream().filter(s -> s.getNumber() == id).findFirst();
-    }
-
-    public boolean replace(final Square oldSquare, final Square newSquare) {
-        squares.remove(oldSquare);
-        return squares.add(newSquare);
     }
 
     public void remove(Square square) {

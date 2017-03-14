@@ -12,8 +12,8 @@ public class CreationCommand extends Command {
 
     @Override
     public void execute(final SquareRepository squareRepository, final CommandMetadata commandMetadata) {
-        Square square = buildSquare(commandMetadata);
-        Optional<Square> optionalSquare = squareRepository.findOne(square);
+        final Square square = buildSquare(commandMetadata);
+        final Optional<Square> optionalSquare = squareRepository.findOneById(square.getNumber());
         optionalSquare.ifPresent(s -> squareRepository.remove(s));
         squareRepository.add(square);
         saveUndoableData(square, commandMetadata, squareRepository);
@@ -21,18 +21,17 @@ public class CreationCommand extends Command {
 
     @Override
     public void undo() {
-        Optional<Square> square = undoableDataWrapper.getSquareRepository().findOne(undoableDataWrapper.getSquare());
+        final Optional<Square> square = undoableDataWrapper.getSquareRepository().findOneById(undoableDataWrapper.getSquare().getNumber());
         square.ifPresent(s -> undoableDataWrapper.getSquareRepository().remove(s));
     }
 
     @Override
-    //mozna prosciej
     public void redo() {
-        execute(undoableDataWrapper.getSquareRepository(), undoableDataWrapper.getCommandMetadata());
+        undoableDataWrapper.getSquareRepository().add(undoableDataWrapper.getSquare());
     }
 
     private static Square buildSquare(final CommandMetadata commandMetadata) {
-        Square square = new Square();
+        final Square square = new Square();
         square.setNumber(commandMetadata.getIFactor());
         square.setSideLength(commandMetadata.getJFactor());
         return square;
