@@ -4,8 +4,6 @@ import org.junit.Test;
 import sms.Square;
 import sms.SquareRepository;
 
-import java.util.Optional;
-
 import static org.junit.Assert.*;
 
 /**
