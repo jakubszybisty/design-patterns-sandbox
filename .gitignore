@@ -4,3 +4,7 @@ observer/target/
 command/target/
 builder/target/
 bridge/target/
+factory/target/factory-1.0-SNAPSHOT.jar
+factory/target/
+strategy/target/
+visitor/target/
