@@ -2,8 +2,6 @@ package sms;
 
 import sms.command.*;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 /**

@@ -19,6 +19,9 @@
         <module>command</module>
         <module>builder</module>
         <module>bridge</module>
+        <module>visitor</module>
+        <module>factory</module>
+        <module>strategy</module>
     </modules>
 
     <build>

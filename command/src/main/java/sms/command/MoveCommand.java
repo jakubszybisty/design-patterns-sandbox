@@ -32,7 +32,7 @@ public class MoveCommand extends Command {
     private static void moveSquareForward(final Square square, final CommandMetadata commandMetadata) {
         square.setXCoordinate(square.getXCoordinate() + commandMetadata.getJFactor());
         square.setYCoordinate(square.getYCoordinate() + commandMetadata.getKFactor());
-    }
+}
 
     private static void moveSquareBackward(final Square square, final CommandMetadata commandMetadata) {
         square.setXCoordinate(square.getXCoordinate() - commandMetadata.getJFactor());
